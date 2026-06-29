@@ -1,0 +1,23 @@
+﻿@model CitaApp.Web.Models.CitaJson
+@{
+    ViewData["Title"] = "Agregar Cita";
+}
+
+<h1>Agregar Cita</h1>
+<form method="post">
+    <label>ID Paciente</label><br />
+    <input asp-for="PacienteId" type="number" /><br />
+    <label>ID Médico</label><br />
+    <input asp-for="MedicoId" type="number" /><br />
+    <label>Fecha (YYYY-MM-DD)</label><br />
+    <input asp-for="Fecha" placeholder="2026-07-15" /><br />
+    <label>Hora (HH:mm)</label><br />
+    <input asp-for="Hora" placeholder="10:30" /><br />
+    <label>Motivo</label><br />
+    <input asp-for="Motivo" /><br />
+    <label>Estado</label><br />
+    <input asp-for="Estado" value="Pendiente" /><br /><br />
+
+    <input type="submit" value="Guardar" />
+</form>
+<a asp-action="Index">Cancelar</a>
