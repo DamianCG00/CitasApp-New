@@ -1,0 +1,21 @@
+@model List<CitasApp.Models.Cita>
+@{
+    ViewData["Title"] = "Citas por Paciente";
+    var pacientes = ViewBag.Pacientes as List<CitasApp.Models.Paciente>;
+    var medicos = ViewBag.Medicos as List<CitasApp.Models.Medico>;
+}
+<h1>Citas del Paciente</h1>
+<table>
+    <tr><th>Fecha</th><th>Hora</th><th>Médico</th><th>Motivo</th><th>Estado</th></tr>
+    @foreach (var c in Model) {
+        var med = medicos?.FirstOrDefault(m => m.Id == c.MedicoId);
+        <tr>
+            <td>@c.Fecha</td>
+            <td>@c.Hora</td>
+            <td>@(med != null ? $"{med.Nombre} {med.Apellido}" : "-")</td>
+            <td>@c.Motivo</td>
+            <td>@c.Estado</td>
+        </tr>
+    }
+</table>
+<a asp-action="Index">Volver</a>

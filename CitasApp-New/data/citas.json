@@ -1,0 +1,4 @@
+[
+  { "Id": 1, "PacienteId": 1, "MedicoId": 1, "Fecha": "2026-06-15", "Hora": "10:00:00", "Motivo": "Chequeo general", "Estado": "Confirmada" },
+  { "Id": 2, "PacienteId": 2, "MedicoId": 2, "Fecha": "2026-06-17", "Hora": "11:15:00", "Motivo": "Revisión exámenes", "Estado": "Pendiente" }
+]

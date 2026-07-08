@@ -1,0 +1,7 @@
+@model CitasApp.Models.Paciente
+@{ ViewData["Title"] = "Detalle Paciente"; }
+<h1>Detalle del Paciente</h1>
+<p><strong>Nombre:</strong> @Model.Nombre @Model.Apellido</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Teléfono:</strong> @Model.Telefono</p>
+<a asp-action="Index">Volver</a>

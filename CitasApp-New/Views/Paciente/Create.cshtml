@@ -1,0 +1,15 @@
+@model CitasApp.Models.Paciente
+@{ ViewData["Title"] = "Agregar Paciente"; }
+<h1>Agregar Paciente</h1>
+<form method="post">
+    <label>Nombre</label><br />
+    <input asp-for="Nombre" /><br />
+    <label>Apellido</label><br />
+    <input asp-for="Apellido" /><br />
+    <label>Email</label><br />
+    <input asp-for="Email" /><br />
+    <label>Teléfono</label><br />
+    <input asp-for="Telefono" /><br /><br />
+    <input type="submit" value="Guardar" />
+</form>
+<a asp-action="Index">Cancelar</a>
