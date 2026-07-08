@@ -37,12 +37,19 @@ Además del sistema base MVC, el proyecto destaca por la construcción de una **
 
 ---
 
+## 🗺️ Documentación de Arquitectura (Modelo C4)
+
+La arquitectura completa de este sistema, estructurada en capas (Domain, Application, Infrastructure, Web) y destacando la implementación de los patrones GoF, ha sido documentada visualmente mediante código.
+
+[🔗 Ver Documentación C4 (Contexto, Contenedores y Componentes)](doc/c4-citasapp.md)
+
+---
+
 ## 📸 Capturas de Pantalla
 
 | Endpoint Pacientes (JSON) | Endpoint Calculadora IMC |
 
 | <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4b48141e-0a49-444a-b5f7-ff8618407f98" />
-
 
 ---
 
