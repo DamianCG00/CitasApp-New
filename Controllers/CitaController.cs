@@ -16,7 +16,7 @@ namespace CitaApp.Web.Controllers
         {
             _citaRepo = citaRepo;
             _pacienteRepo = pacienteRepo;
-            _medicoRepo = medicoRepo;
+            _medicoRepo = medicoRepo; 
             _citaPath = Path.Combine(env.ContentRootPath, "data", "citas.json");
         }
 

@@ -29,7 +29,7 @@ namespace CitaApp.Web.Controllers
         [HttpPost]
         public IActionResult Create(CitaApp.Web.Models.Paciente paciente)
         {
-            var lista = _repo.ObtenerTodos().ToList();
+            var lista = _repo.ObtenerTodos().ToList(); 
             paciente.Id = lista.Count > 0 ? lista.Max(p => p.Id) + 1 : 1;
             lista.Add(paciente);
             System.IO.File.WriteAllText(_path, JsonSerializer.Serialize(lista, _opts));

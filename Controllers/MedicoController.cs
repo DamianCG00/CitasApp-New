@@ -28,7 +28,7 @@ namespace CitaApp.Web.Controllers
 
         [HttpPost]
         public IActionResult Create(CitaApp.Web.Models.Medico medico)
-        {
+        { 
             var lista = _repo.ObtenerTodos().ToList();
             medico.Id = lista.Count > 0 ? lista.Max(m => m.Id) + 1 : 1;
             lista.Add(medico);
