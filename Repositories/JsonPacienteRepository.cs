@@ -4,22 +4,11 @@ using CitaApp.Web.Models;
 
 namespace CitaApp.Web.Repositories
 {
-    public class JsonPacienteRepository : IPacienteRepository
+    public class JsonPacienteRepository : JsonFileStore<Paciente>, IPacienteRepository
     {
-        private readonly string _path;
-        private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
+        public JsonPacienteRepository(IWebHostEnvironment env) : base(env, "pacientes.json") { }
 
-        public JsonPacienteRepository(IWebHostEnvironment env)
-        {
-            _path = Path.Combine(env.ContentRootPath, "data", "pacientes.json");
-        }
-
-        public List<Paciente> ObtenerTodos()
-        {
-            if (!File.Exists(_path)) return new();
-            var json = File.ReadAllText(_path);
-            return JsonSerializer.Deserialize<List<Paciente>>(json, _options) ?? new();
-        }
+        public List<Paciente> ObtenerTodos() => Leer();
 
         public Paciente? ObtenerPorId(int id) =>
             ObtenerTodos().FirstOrDefault(p => p.Id == id);

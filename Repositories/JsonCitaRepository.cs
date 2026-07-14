@@ -4,21 +4,13 @@ using CitaApp.Web.Models;
 
 namespace CitaApp.Web.Repositories
 {
-    public class JsonCitaRepository : ICitaRepository
+    public class JsonCitaRepository : JsonFileStore<CitaJson>, ICitaRepository
     {
-        private readonly string _path;
-        private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
-
-        public JsonCitaRepository(IWebHostEnvironment env)
-        {
-            _path = Path.Combine(env.ContentRootPath, "data", "citas.json");
-        }
+        public JsonCitaRepository(IWebHostEnvironment env) : base(env, "citas.json") { }
 
         public List<Cita> ObtenerTodos()
         {
-            if (!File.Exists(_path)) return new();
-            var json = File.ReadAllText(_path);
-            var citasJson = JsonSerializer.Deserialize<List<CitaJson>>(json, _options) ?? new();
+            var citasJson = Leer();
             return citasJson.Select(c => new Cita
             {
                 Id = c.Id,

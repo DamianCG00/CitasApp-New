@@ -1,26 +1,14 @@
 ﻿using System.Text.Json;
 using CitaApp.Web.Interfaces;
 using CitaApp.Web.Models;
-using CitaApp.Web.Models;
 
 namespace CitaApp.Web.Repositories
 {
-    public class JsonMedicoRepository : IMedicoRepository
+    public class JsonMedicoRepository : JsonFileStore<Medico>, IMedicoRepository
     {
-        private readonly string _path;
-        private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
+        public JsonMedicoRepository(IWebHostEnvironment env) : base(env, "medicos.json") { }
 
-        public JsonMedicoRepository(IWebHostEnvironment env)
-        {
-            _path = Path.Combine(env.ContentRootPath, "data", "medicos.json");
-        }
-
-        public List<Medico> ObtenerTodos()
-        {
-            if (!File.Exists(_path)) return new();
-            var json = File.ReadAllText(_path);
-            return JsonSerializer.Deserialize<List<Medico>>(json, _options) ?? new();
-        }
+        public List<Medico> ObtenerTodos() => Leer();
 
         public Medico? ObtenerPorId(int id) =>
             ObtenerTodos().FirstOrDefault(m => m.Id == id);
