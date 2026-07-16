@@ -74,7 +74,7 @@ CitaApp_limpio/
 │   │   └── Paciente.cs
 │   ├── Repositories/
 │   │   ├── JsonCitaRepository.cs
-│   │   ├── JsonFileStore.cs        <-- (Clase base extraída)
+│   │   ├── JsonFileStore.cs        
 │   │   ├── JsonMedicoRepository.cs
 │   │   └── JsonPacienteRepository.cs
 │   ├── Views/
