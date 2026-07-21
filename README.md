@@ -67,7 +67,7 @@ CitaApp_limpio/
 │   ├── Interfaces/
 │   │   ├── ICitaRepository.cs
 │   │   ├── IMedicoRepository.cs
-│   │   └── IPacienteRepository.cs
+│   │   └── IPacienteRepository.cs 
 │   ├── Models/
 │   │   ├── Cita.cs
 │   │   ├── Medico.cs
