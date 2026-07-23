@@ -18,16 +18,6 @@ jobs:
         dotnet-version: '10.0.x'
 
     - name: Restaurar dependencias
-      run: dotnet restore
-
-    - name: Compilar el proyecto
-      run: dotnet build --no-restore
-
-    - name: Ejecutar pruebas
-      run: dotnet test --no-build --verbosity normal
-
-
-    - name: Restaurar dependencias
       run: dotnet restore CitaApp.Web.csproj
 
     - name: Compilar el proyecto
